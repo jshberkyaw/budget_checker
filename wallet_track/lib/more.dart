@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_track/componets/colors.dart';
+import 'package:wallet_track/profile.dart';
+import 'package:wallet_track/settings.dart';
 
 class more extends StatefulWidget {
   const more({super.key});
@@ -15,12 +17,16 @@ class _moreState extends State<more> {
       backgroundColor:  Color(0xFFF5F5F5),
       appBar: AppBar(
         elevation: 0,
-        toolbarHeight: 100,
-        actions: const [
+        toolbarHeight: 95,
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right:14.0,top:20),
-            child: Text("Profile",style: TextStyle(color: Colors.blue,fontSize: 18,fontWeight: FontWeight.w500),)//Icon(Icons.notification_add,color: Colors.black,),
-
+            padding: EdgeInsets.only(right:14.0,),
+            child: TextButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Profile(),));
+            }, 
+            child: Text("Profile",style: TextStyle(color: Colors.blue,fontSize: 18,fontWeight: FontWeight.w500),)
+          
+            )
           )
         ],
         backgroundColor: Colors.white,
@@ -39,15 +45,13 @@ class _moreState extends State<more> {
             ],
           ),
         ),
-        //title: Text('More'),
+        
       ),
        body: Padding(
          padding: const EdgeInsets.symmetric(horizontal:20.0,vertical: 8),
-         child: GridView(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 10,crossAxisSpacing: 20),
+         child: GridView(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 10,crossAxisSpacing: 20),
          children: [
           Container(
-                // height: 50,
-                // width: 100,
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(17),color: Colors.white,
                 boxShadow:const [BoxShadow(color:Color.fromARGB(255, 237, 234, 234),blurRadius: 3.0,spreadRadius: 5,offset: Offset(3.9, 3))]),
                 child: 
@@ -60,8 +64,6 @@ class _moreState extends State<more> {
                 ),
               ),
               Container(
-                // height: 50,
-                // width: 100,
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(17),color: Colors.white,
                 boxShadow:[BoxShadow(color:Color.fromARGB(255, 237, 234, 234),blurRadius: 3.0,spreadRadius: 5,offset: Offset(-3, 3))]),
                 child: 
@@ -70,7 +72,7 @@ class _moreState extends State<more> {
                         children: [
                               Icon(Icons.group_rounded,size: 60, color:mygreen,),
                               const Text("  Group Sharing",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
-                              Padding(
+                              const Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text("No Group",style: TextStyle(fontWeight: FontWeight.w400,fontSize: 15),),
                               )
@@ -79,10 +81,8 @@ class _moreState extends State<more> {
               ),
             
             Container(
-                // height: 50,
-                // width: 100,
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(17),color: Colors.white,
-                boxShadow:[BoxShadow(color:Color.fromARGB(255, 237, 234, 234),blurRadius: 3.0,spreadRadius: 5,offset: Offset(3.8, 3))]),
+                boxShadow:const [BoxShadow(color:Color.fromARGB(255, 237, 234, 234),blurRadius: 3.0,spreadRadius: 5,offset: Offset(3.8, 3))]),
                 child: 
                  Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -95,7 +95,7 @@ class _moreState extends State<more> {
               ),
                Container(
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(17),color: Colors.white,
-                boxShadow:[BoxShadow(color:Color.fromARGB(255, 237, 234, 234),blurRadius: 3.0,spreadRadius: 5,offset: Offset(-3, 3))]),
+                boxShadow:const [BoxShadow(color:Color.fromARGB(255, 237, 234, 234),blurRadius: 3.0,spreadRadius: 5,offset: Offset(-3, 3))]),
                 child: 
                 const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -108,30 +108,35 @@ class _moreState extends State<more> {
               ),
                Container(
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(17),color: Colors.white,
-                boxShadow:[BoxShadow(color:Color.fromARGB(255, 237, 234, 234),blurRadius: 3.0,spreadRadius: 5,offset: Offset(3.8, 3))]),
+                boxShadow:const[BoxShadow(color:Color.fromARGB(255, 237, 234, 234),blurRadius: 3.0,spreadRadius: 5,offset: Offset(3.8, 3))]),
                 child: 
                  const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                               Icon(Icons.follow_the_signs,size: 60, color:Colors.pinkAccent,),
-                              const Text("  Follow us",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
+                              Text("  Follow us",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
                               
                         ],
                 ),
               ),
-               Container(
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(17),color: Colors.white,
-                boxShadow:[BoxShadow(color:Color.fromARGB(255, 237, 234, 234),blurRadius: 3.0,spreadRadius: 5,offset: Offset(-3, 3))]),
-                child: 
-                 const Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                              Icon(Icons.settings_display_rounded,size: 60, color:Colors.blue,),
-                              const Text("  Settings",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
-                              
-                        ],
-                ),
-              ),
+               InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Settings(),));
+                },
+                 child: Container(
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(17),color: Colors.white,
+                  boxShadow:[BoxShadow(color:Color.fromARGB(255, 237, 234, 234),blurRadius: 3.0,spreadRadius: 5,offset: Offset(-3, 3))]),
+                  child: 
+                   const Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                                Icon(Icons.settings_display_rounded,size: 60, color:Colors.blue,),
+                                const Text("  Settings",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
+                                
+                          ],
+                  ),
+                             ),
+               ),
                Container(
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(17),color: Colors.white,
                 boxShadow:[BoxShadow(color:Color.fromARGB(255, 237, 234, 234),blurRadius: 3.0,spreadRadius: 5,offset: Offset(3.8, 3))]),
