@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_track/bttnnavigator.dart';
-import 'package:wallet_track/home.dart';
-import 'package:wallet_track/statistics.dart';
+//import 'package:wallet_track/homey.dart';
+//import 'package:wallet_track/home.dart';
+//import 'package:wallet_track/statistics.dart';
 
 
 void main() {
@@ -19,7 +20,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:buttnav(),
+      home: buttnav(),
     );
   }
 }
